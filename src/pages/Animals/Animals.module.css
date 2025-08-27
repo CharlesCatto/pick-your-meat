@@ -1,0 +1,112 @@
+.animalsPage {
+	padding: var(--space-8);
+}
+
+.animalList {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-8);
+}
+
+.animalCard {
+	background-color: hsl(var(--color-card));
+	border-radius: var(--radius-lg);
+	padding: var(--space-6);
+	border: 2px solid hsl(var(--color-border));
+}
+
+.animalHeader {
+	margin-bottom: var(--space-4);
+}
+
+.animalHeader h2 {
+	color: hsl(var(--color-primary));
+	margin: 0;
+}
+
+.scientificName {
+	font-style: italic;
+	color: hsl(var(--color-muted-foreground));
+	font-size: var(--text-sm);
+}
+
+.animalImage {
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	border-radius: var(--radius);
+	margin: var(--space-4) 0;
+}
+
+.animalDescription {
+	line-height: 1.6;
+	color: hsl(var(--color-foreground));
+	margin-bottom: var(--space-6);
+}
+
+.cutsSection h3 {
+	color: hsl(var(--color-secondary));
+	margin-bottom: var(--space-4);
+}
+
+.cutsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: var(--space-4);
+}
+
+.cutCard {
+	background-color: hsl(var(--color-background));
+	padding: var(--space-4);
+	border-radius: var(--radius);
+	border: 1px solid hsl(var(--color-border));
+}
+
+.cutCard h4 {
+	color: hsl(var(--color-primary));
+	margin: 0 0 var(--space-2) 0;
+}
+
+.cutPart {
+	font-style: italic;
+	color: hsl(var(--color-muted-foreground));
+	margin: 0 0 var(--space-3) 0;
+	font-size: var(--text-sm);
+}
+
+.cutDetails {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--space-3);
+	font-size: var(--text-sm);
+}
+
+.cutUses {
+	margin-top: var(--space-3);
+}
+
+.useTags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	margin-top: var(--space-2);
+}
+
+.useTag {
+	background-color: hsl(var(--color-muted));
+	color: hsl(var(--color-muted-foreground));
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--radius-sm);
+	font-size: var(--text-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.animalsPage {
+		padding: var(--space-4);
+	}
+
+	.cutsGrid {
+		grid-template-columns: 1fr;
+	}
+}

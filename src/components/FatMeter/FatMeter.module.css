@@ -1,0 +1,38 @@
+.fatMeter {
+	margin: var(--space-4) 0;
+}
+
+.meterLabels {
+	display: flex;
+	justify-content: space-between;
+	font-size: var(--text-sm);
+	color: hsl(var(--color-muted-foreground));
+	margin-bottom: var(--space-2);
+}
+
+.meterBar {
+	height: 8px;
+	background: linear-gradient(
+		90deg,
+		hsl(var(--color-lean)),
+		hsl(var(--color-marbling)),
+		hsl(var(--color-fat))
+	);
+	border-radius: var(--radius);
+	overflow: hidden;
+}
+
+.meterFill {
+	height: 100%;
+	background-color: hsl(var(--color-fat));
+	border-radius: var(--radius);
+	transition: width 0.5s ease;
+}
+
+.meterValue {
+	text-align: center;
+	font-weight: 600;
+	color: hsl(var(--color-fat));
+	margin-top: var(--space-2);
+	font-size: var(--text-sm);
+}

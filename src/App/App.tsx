@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import styles from "./App.module.css";
 import Cards from "../pages/Cards/Cards";
+import Animals from "../pages/Animals/Animals";
 import NotFound from "../pages/NotFound/NotFound";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/cards" element={<Cards />} />
 						<Route path="/about" element={<About />} />
+						<Route path="/animals" element={<Animals />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</main>

@@ -1,34 +1,45 @@
-/* 1. Déclaration des Variables CSS (Couleurs, Polices, Espacements) */
+/* src/index.css - THÈME "PICK YOUR MEAT" */
+
+/* 1. Variables CSS - Palette Boucherie */
 :root {
-	/* Couleurs Primaires */
-	--color-primary: 220 70% 50%;
-	--color-primary-hover: 220 70% 45%;
+	/* Couleurs Primaires (Rouges/Bordeaux) */
+	--color-primary: 355 70% 45%; /* Rouge bordeaux profond */
+	--color-primary-hover: 355 75% 40%;
 
-	/* Couleurs Neutres */
-	--color-background: 0 0% 100%;
-	--color-foreground: 220 20% 15%;
-	--color-muted: 220 15% 85%;
-	--color-muted-foreground: 220 10% 40%;
-	--color-border: 220 15% 90%;
-	--color-card: 0 0% 100%;
-	--color-card-foreground: 220 20% 15%;
+	/* Couleurs Secondaires (Bruns/Beiges) */
+	--color-secondary: 25 50% 55%; /* Brun cuir */
+	--color-secondary-hover: 25 55% 50%;
 
-	/* Tailles de police  */
-	--text-xs: 0.75rem; /* 12px */
-	--text-sm: 0.875rem; /* 14px */
-	--text-base: 1rem; /* 16px */
-	--text-lg: 1.125rem; /* 18px */
-	--text-xl: 1.25rem; /* 20px */
-	--text-2xl: 1.5rem; /* 24px */
-	--text-3xl: 1.875rem; /* 30px */
-	--text-4xl: 2.25rem; /* 36px */
+	/* Couleurs d'arrière-plan (Beiges/Blanc cassé) */
+	--color-background: 40 30% 96%; /* Beige très clair */
+	--color-foreground: 0 0% 15%; /* Noir profond */
+	--color-muted: 25 20% 85%; /* Beige grisâtre */
+	--color-muted-foreground: 0 0% 40%; /* Gris foncé */
+	--color-border: 25 20% 80%; /* Ligne beige */
+	--color-card: 0 0% 100%; /* Blanc pur */
+	--color-card-foreground: 0 0% 15%; /* Noir profond */
 
-	/* Espacements  */
-	--space-1: 0.25rem; /* 4px */
-	--space-2: 0.5rem; /* 8px */
-	--space-4: 1rem; /* 16px */
-	--space-6: 1.5rem; /* 24px */
-	--space-8: 2rem; /* 32px */
+	/* Accents viande */
+	--color-fat: 45 90% 65%; /* Jaune doré pour la graisse */
+	--color-lean: 355 70% 45%; /* Rouge pour la viande maigre */
+	--color-marbling: 15 50% 70%; /* Brun rosé pour le persillé */
+
+	/* Tailles de police */
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
+	--text-2xl: 1.5rem;
+	--text-3xl: 1.875rem;
+	--text-4xl: 2.25rem;
+
+	/* Espacements */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-4: 1rem;
+	--space-6: 1.5rem;
+	--space-8: 2rem;
 
 	/* Bordures */
 	--radius-sm: 0.25rem;
@@ -36,12 +47,11 @@
 	--radius-lg: 0.75rem;
 }
 
-/* 2. Style Global de base et Smooth Scroll */
+/* 2. Style Global de base */
 html {
 	scroll-behavior: smooth;
 }
 
-/* 3. reset */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -49,34 +59,143 @@ html {
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	line-height: 1.5;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	line-height: 1.6;
 	color: hsl(var(--color-foreground));
 	background-color: hsl(var(--color-background));
+	background-image: radial-gradient(
+		hsl(var(--color-muted) / 0.2) 1px,
+		transparent 1px
+	);
+	background-size: 20px 20px;
 }
 
-/* 4. Styles de base pour les titres */
+/* 3. Styles de base pour les titres */
 h1 {
 	font-size: var(--text-4xl);
-	font-weight: 700;
+	font-weight: 800;
 	margin-bottom: var(--space-6);
+	color: hsl(var(--color-primary));
+	text-transform: uppercase;
+	letter-spacing: -0.5px;
 }
 
 h2 {
 	font-size: var(--text-3xl);
-	font-weight: 600;
+	font-weight: 700;
 	margin-bottom: var(--space-4);
+	color: hsl(var(--color-primary));
 }
 
 h3 {
 	font-size: var(--text-2xl);
 	font-weight: 600;
 	margin-bottom: var(--space-4);
+	color: hsl(var(--color-secondary));
 }
 
-/* 5. Styles pour les liens et images */
+/* 4. Styles pour les liens et images */
 a {
-	color: inherit;
+	color: hsl(var(--color-primary));
 	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: hsl(var(--color-primary-hover));
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* 5. Styles spécifiques au thème viande */
+.fat-indicator {
+	background: linear-gradient(
+		90deg,
+		hsl(var(--color-lean)),
+		hsl(var(--color-marbling)),
+		hsl(var(--color-fat))
+	);
+	height: 8px;
+	border-radius: var(--radius);
+	margin: var(--space-2) 0;
+}
+
+.fat-value {
+	display: inline-block;
+	padding: var(--space-1) var(--space-2);
+	background-color: hsl(var(--color-fat));
+	color: hsl(var(--color-foreground));
+	border-radius: var(--radius-sm);
+	font-weight: 600;
+	font-size: var(--text-sm);
+}
+
+/* 6. Override pour les cartes */
+.card {
+	background-color: hsl(var(--color-card));
+	border: 2px solid hsl(var(--color-border));
+	border-radius: var(--radius-lg);
+	padding: var(--space-6);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	border-color: hsl(var(--color-primary) / 0.5);
+}
+
+/* 7. Styles pour les boutons */
+button,
+.button {
+	background-color: hsl(var(--color-primary));
+	color: white;
+	border: none;
+	padding: var(--space-3) var(--space-6);
+	border-radius: var(--radius);
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+button:hover,
+.button:hover {
+	background-color: hsl(var(--color-primary-hover));
+	transform: translateY(-2px);
+}
+
+/* 8. Navigation spécifique */
+.navbar {
+	background: linear-gradient(
+		135deg,
+		hsl(var(--color-primary)),
+		hsl(var(--color-secondary))
+	);
+	border-bottom: 3px solid hsl(var(--color-fat));
+}
+
+.nav-logo {
+	color: white !important;
+	font-weight: 800;
+}
+
+/* 9. Responsive */
+@media (max-width: 768px) {
+	body {
+		background-size: 15px 15px;
+	}
+
+	h1 {
+		font-size: var(--text-3xl);
+	}
+
+	h2 {
+		font-size: var(--text-2xl);
+	}
 }
