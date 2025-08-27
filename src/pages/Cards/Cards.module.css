@@ -1,0 +1,119 @@
+.container {
+	padding: var(--space-8);
+}
+
+.controls {
+	background-color: hsl(var(--color-card));
+	padding: var(--space-6);
+	border-radius: var(--radius-lg);
+	margin-bottom: var(--space-8);
+	border: 1px solid hsl(var(--color-border));
+}
+
+.filterGroup h3 {
+	margin-bottom: var(--space-4);
+}
+
+.filterButtons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	margin-bottom: var(--space-6);
+}
+
+.filterButton {
+	padding: var(--space-2) var(--space-4);
+	border: 1px solid hsl(var(--color-border));
+	background-color: hsl(var(--color-background));
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+	background-color: hsl(var(--color-muted));
+}
+
+.filterButton.active {
+	background-color: hsl(var(--color-primary));
+	color: white;
+	border-color: hsl(var(--color-primary));
+}
+
+.actionGroup {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-4);
+}
+
+.actionButton {
+	padding: var(--space-2) var(--space-4);
+	border: 1px solid hsl(var(--color-border));
+	background-color: hsl(var(--color-background));
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.actionButton:hover:not(:disabled) {
+	background-color: hsl(var(--color-muted));
+}
+
+.actionButton:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.cardsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: var(--space-6);
+}
+
+.noResults {
+	text-align: center;
+	font-size: var(--text-xl);
+	color: hsl(var(--color-muted-foreground));
+	margin-top: var(--space-12);
+}
+
+.cardsContainer {
+	min-height: 400px;
+}
+
+.singleCard {
+	display: flex;
+	justify-content: center;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.counter {
+	display: flex;
+	align-items: center;
+	padding: 0 var(--space-4);
+	font-weight: bold;
+	color: hsl(var(--color-primary));
+}
+
+.actionButton.active {
+	background-color: hsl(var(--color-primary));
+	color: white;
+	border-color: hsl(var(--color-primary));
+}
+
+@media (max-width: 768px) {
+	.actionGroup {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.actionGroup button {
+		margin-bottom: var(--space-2);
+	}
+
+	.counter {
+		justify-content: center;
+		margin-top: var(--space-2);
+	}
+}

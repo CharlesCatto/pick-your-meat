@@ -1,0 +1,74 @@
+.card {
+	background-color: hsl(var(--color-card));
+	border: 1px solid hsl(var(--color-border));
+	border-radius: var(--radius-lg);
+	padding: var(--space-6);
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+	transition: all 0.3s ease;
+	height: 100%;
+}
+
+.card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.cardHeader {
+	border-bottom: 1px solid hsl(var(--color-border));
+	padding-bottom: var(--space-4);
+	margin-bottom: var(--space-4);
+}
+
+.cardTitle {
+	font-size: var(--text-xl);
+	font-weight: 700;
+	color: hsl(var(--color-primary));
+	margin: 0;
+}
+
+.cardCategory {
+	display: inline-block;
+	background-color: hsl(var(--color-muted));
+	color: hsl(var(--color-muted-foreground));
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--radius-sm);
+	font-size: var(--text-sm);
+	margin-top: var(--space-2);
+}
+
+.cardBody p {
+	margin-bottom: var(--space-2);
+}
+
+.paradigms ul {
+	list-style: none;
+	padding-left: 0;
+	margin-top: var(--space-2);
+}
+
+.paradigms li {
+	display: inline-block;
+	background-color: hsl(var(--color-primary) / 0.1);
+	color: hsl(var(--color-primary));
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--radius-sm);
+	font-size: var(--text-sm);
+	margin-right: var(--space-2);
+	margin-bottom: var(--space-2);
+}
+
+.card.blurred {
+	filter: blur(5px);
+	user-select: none;
+	pointer-events: none;
+}
+
+.blurredContent {
+	filter: blur(5px);
+	user-select: none;
+	pointer-events: none;
+}
+
+.cardBody {
+	transition: filter 0.3s ease;
+}

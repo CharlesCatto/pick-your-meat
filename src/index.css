@@ -1,0 +1,82 @@
+/* 1. Déclaration des Variables CSS (Couleurs, Polices, Espacements) */
+:root {
+	/* Couleurs Primaires */
+	--color-primary: 220 70% 50%;
+	--color-primary-hover: 220 70% 45%;
+
+	/* Couleurs Neutres */
+	--color-background: 0 0% 100%;
+	--color-foreground: 220 20% 15%;
+	--color-muted: 220 15% 85%;
+	--color-muted-foreground: 220 10% 40%;
+	--color-border: 220 15% 90%;
+	--color-card: 0 0% 100%;
+	--color-card-foreground: 220 20% 15%;
+
+	/* Tailles de police  */
+	--text-xs: 0.75rem; /* 12px */
+	--text-sm: 0.875rem; /* 14px */
+	--text-base: 1rem; /* 16px */
+	--text-lg: 1.125rem; /* 18px */
+	--text-xl: 1.25rem; /* 20px */
+	--text-2xl: 1.5rem; /* 24px */
+	--text-3xl: 1.875rem; /* 30px */
+	--text-4xl: 2.25rem; /* 36px */
+
+	/* Espacements  */
+	--space-1: 0.25rem; /* 4px */
+	--space-2: 0.5rem; /* 8px */
+	--space-4: 1rem; /* 16px */
+	--space-6: 1.5rem; /* 24px */
+	--space-8: 2rem; /* 32px */
+
+	/* Bordures */
+	--radius-sm: 0.25rem;
+	--radius: 0.5rem;
+	--radius-lg: 0.75rem;
+}
+
+/* 2. Style Global de base et Smooth Scroll */
+html {
+	scroll-behavior: smooth;
+}
+
+/* 3. reset */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	line-height: 1.5;
+	color: hsl(var(--color-foreground));
+	background-color: hsl(var(--color-background));
+}
+
+/* 4. Styles de base pour les titres */
+h1 {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+	margin-bottom: var(--space-6);
+}
+
+h2 {
+	font-size: var(--text-3xl);
+	font-weight: 600;
+	margin-bottom: var(--space-4);
+}
+
+h3 {
+	font-size: var(--text-2xl);
+	font-weight: 600;
+	margin-bottom: var(--space-4);
+}
+
+/* 5. Styles pour les liens et images */
+a {
+	color: inherit;
+	text-decoration: none;
+}
