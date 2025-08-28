@@ -38,7 +38,7 @@ const NavBar = () => {
 		<nav className={styles.navbar}>
 			<div className={styles.navContainer} ref={navRef}>
 				<NavLink to="/" className={styles.navLogo} onClick={closeMobileMenu}>
-					DevTech Cards
+					Pick your Meat
 					<img src={logo} alt="logo of DevTech Cards" className={styles.logo} />
 					<i className="fas fa-code" />
 				</NavLink>
