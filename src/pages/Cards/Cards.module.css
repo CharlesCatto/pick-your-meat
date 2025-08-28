@@ -119,7 +119,6 @@
 	transform: none;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
 	.container {
 		padding: var(--space-4);

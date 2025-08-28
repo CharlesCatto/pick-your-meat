@@ -1,9 +1,13 @@
 import { useState, useMemo, useEffect } from "react";
 import Card from "../../components/Card/Card";
-import { animals, meatCuts } from "../../data/meatData";
+import { useTranslation } from "../../hooks/useTranslation";
 import styles from "./Cards.module.css";
+import { useMeatData } from "../../hooks/useMeatData";
 
 const Cards = () => {
+	const { t } = useTranslation();
+	const { animals, meatCuts } = useMeatData();
+
 	// États pour les filtres
 	const [selectedAnimals, setSelectedAnimals] = useState<string[]>([]);
 	const [isRandomMode, setIsRandomMode] = useState(false);
@@ -26,7 +30,7 @@ const Cards = () => {
 		cuts = cuts.filter((cut) => cut.gras >= fatFilter);
 
 		return cuts;
-	}, [selectedAnimals, fatFilter]);
+	}, [selectedAnimals, fatFilter, meatCuts]); // ✅ Ajoute meatCuts aux dépendances
 
 	// Réinitialiser l'index quand les filtres changent
 	useEffect(() => {
@@ -78,13 +82,13 @@ const Cards = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1>Découvrez les Morceaux de Viande</h1>
+			<h1>{t("cards.title")}</h1>
 
 			{/* Section des Contrôles */}
 			<div className={styles.controls}>
 				{/* Filtres par Animal */}
 				<div className={styles.filterGroup}>
-					<h3>Filtrer par animal :</h3>
+					<h3>{t("cards.filterByAnimal")}</h3>
 					<div className={styles.filterButtons}>
 						{animals.map((animal) => (
 							<button
@@ -101,7 +105,9 @@ const Cards = () => {
 
 				{/* Filtre de Gras */}
 				<div className={styles.filterGroup}>
-					<h3>Teneur minimum en gras: {fatFilter}%</h3>
+					<h3>
+						{t("cards.fatContent")} {fatFilter}%
+					</h3>
 					<input
 						type="range"
 						min="0"
@@ -120,7 +126,7 @@ const Cards = () => {
 						disabled={filteredCuts.length === 0}
 						className={`${styles.actionButton} ${isRandomMode ? styles.active : ""} ${filteredCuts.length === 0 ? styles.disabled : ""}`}
 					>
-						{isRandomMode ? "🎲 Mode Random (ON)" : "🎲 Mode Random"}
+						{isRandomMode ? t("cards.randomModeOn") : t("cards.randomMode")}
 					</button>
 
 					<button
@@ -129,7 +135,7 @@ const Cards = () => {
 						disabled={filteredCuts.length === 0}
 						className={`${styles.actionButton} ${isBlurred ? styles.active : ""} ${filteredCuts.length === 0 ? styles.disabled : ""}`}
 					>
-						{isBlurred ? "👀 Voir la Réponse" : "🙈 Mode Devinette"}
+						{isBlurred ? t("cards.seeAnswer") : t("cards.guessMode")}
 					</button>
 
 					{/* Boutons de navigation */}
@@ -140,7 +146,7 @@ const Cards = () => {
 								onClick={nextCut}
 								className={styles.actionButton}
 							>
-								Suivant ▶️
+								{t("cards.next")}
 							</button>
 							<span className={styles.counter}>
 								{currentCutIndex + 1} / {filteredCuts.length}
@@ -153,11 +159,8 @@ const Cards = () => {
 			{/* Message si aucun résultat */}
 			{filteredCuts.length === 0 && (
 				<div className={styles.noResults}>
-					<h3>🧐 Aucun morceau ne correspond à vos critères</h3>
-					<p>
-						Essayez de réduire le filtre de gras ou de sélectionner d'autres
-						animaux.
-					</p>
+					<h3>{t("cards.noResults")}</h3>
+					<p>{t("cards.noResultsHint")}</p>
 				</div>
 			)}
 

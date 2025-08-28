@@ -1,18 +1,20 @@
 import styles from "./Animals.module.css";
-import { animals, meatCuts } from "../../data/meatData";
 import FatMeter from "../../components/FatMeter/FatMeter";
 import type { Animal } from "../../data/types";
+import { useMeatData } from "../../hooks/useMeatData";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const Animals: React.FC = () => {
-	// Fonction pour récupérer les cuts d'un animal
+	const { t } = useTranslation();
+	const { animals, meatCuts } = useMeatData();
+
 	const getCutsForAnimal = (animalId: number) => {
 		return meatCuts.filter((cut) => cut.animal_id === animalId);
 	};
 
 	return (
 		<div className={styles.animalsPage}>
-			<h1>Choose Your Animal</h1>
-
+			<h1>{t("animals.title")}</h1>
 			<div className={styles.animalList}>
 				{animals.map((animal: Animal) => {
 					const cutsForAnimal = getCutsForAnimal(animal.id);
@@ -35,8 +37,9 @@ const Animals: React.FC = () => {
 							<p className={styles.animalDescription}>{animal.description}</p>
 
 							<div className={styles.cutsSection}>
-								<h3>Morceaux disponibles ({cutsForAnimal.length})</h3>
-
+								<h3>
+									{t("animals.cutsAvailable")} ({cutsForAnimal.length})
+								</h3>
 								<div className={styles.cutsGrid}>
 									{cutsForAnimal.map((cut) => (
 										<div key={cut.id} className={styles.cutCard}>
@@ -44,17 +47,24 @@ const Animals: React.FC = () => {
 											<p className={styles.cutPart}>{cut.partie_anatomique}</p>
 
 											<div className={styles.cutDetails}>
-												<span>Tendreté: {cut.tendrete}/5</span>
-												<span>Prix: {cut.prix_kg}€/kg</span>
+												<span>
+													{t("common.tenderness")}: {cut.tendrete}/5
+												</span>
+												<span>
+													{t("common.price")}: {cut.prix_kg}€/kg
+												</span>
 											</div>
 
 											<FatMeter fatPercentage={cut.gras} />
 
 											<div className={styles.cutUses}>
-												<strong>Utilisations:</strong>
+												<strong>{t("common.uses")}:</strong>
 												<div className={styles.useTags}>
 													{cut.utilisation.map((use, index) => (
-														<span key={index} className={styles.useTag}>
+														<span
+															key={`${cut.id}-${use}-${index}`}
+															className={styles.useTag}
+														>
 															{use}
 														</span>
 													))}

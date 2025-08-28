@@ -203,7 +203,6 @@
 		background-color: hsl(var(--color-muted));
 	}
 
-	/* bouton burger */
 	.navIcon {
 		display: flex;
 		flex-direction: column;
@@ -219,5 +218,35 @@
 		top: 50%;
 		right: var(--space-4);
 		transform: translateY(-50%);
+	}
+}
+
+.langButton {
+	background: none;
+	border: 2px solid hsl(var(--color-border));
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 1.2rem;
+	transition: all 0.3s ease;
+	margin-left: var(--space-4);
+}
+
+.langButton:hover {
+	border-color: hsl(var(--color-primary));
+	transform: scale(1.1);
+	background-color: hsl(var(--color-primary) / 0.1);
+}
+
+@media screen and (max-width: 960px) {
+	.langButton {
+		margin: var(--space-4) auto;
+		width: 50px;
+		height: 50px;
+		font-size: 1.5rem;
 	}
 }

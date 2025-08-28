@@ -100,7 +100,6 @@
 	font-size: var(--text-xs);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
 	.animalsPage {
 		padding: var(--space-4);

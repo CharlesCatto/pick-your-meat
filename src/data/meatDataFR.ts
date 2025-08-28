@@ -1,6 +1,6 @@
 import type { Animal, MeatCut } from "./types";
 
-export const animals: Animal[] = [
+export const animalsFR: Animal[] = [
 	{
 		id: 1,
 		nom: "Bœuf",
@@ -39,6 +39,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge au goût distinctif et légèrement gamey. Tendre et riche en fer et zinc.",
 		image_url: "/images/agneau.jpg",
+		emoji: "🐑",
 	},
 	{
 		id: 5,
@@ -48,6 +49,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge foncé au goût riche et légèrement sucré. Peau croustillante appréciée.",
 		image_url: "/images/canard.jpg",
+		emoji: "🦆",
 	},
 	{
 		id: 6,
@@ -57,6 +59,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande blanche très maigre, fine et délicate. Goût léger et texture tendre.",
 		image_url: "/images/lapin.jpg",
+		emoji: "🐇",
 	},
 	{
 		id: 7,
@@ -66,6 +69,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande blanche très maigre, souvent consommée lors des fêtes. Saveur douce et texture ferme.",
 		image_url: "/images/dinde.jpg",
+		emoji: "🦃",
 	},
 	{
 		id: 8,
@@ -75,6 +79,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rose pâle très tendre au goût délicat et subtil. Texture fine et peu de gras.",
 		image_url: "/images/veau.jpg",
+		emoji: "🐄🍼",
 	},
 	{
 		id: 9,
@@ -84,6 +89,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge foncé au goût prononcé et gamey. Texture ferme et saveur robuste.",
 		image_url: "/images/sanglier.jpg",
+		emoji: "🐗",
 	},
 	{
 		id: 10,
@@ -93,6 +99,7 @@ export const animals: Animal[] = [
 		description:
 			"Petite volaille au goût raffiné et légèrement noisette. Viande tendre et peu grasse.",
 		image_url: "/images/caille.jpg",
+		emoji: "🐦",
 	},
 	{
 		id: 11,
@@ -102,6 +109,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge très maigre au goût sucré et distinctif. Riche en fer et en acides gras oméga-3.",
 		image_url: "/images/cheval.jpg",
+		emoji: "🐎",
 	},
 	{
 		id: 12,
@@ -111,6 +119,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge au goût gamey et prononcé. Populaire dans les cuisines méditerranéennes et caribéennes.",
 		image_url: "/images/chevre.jpg",
+		emoji: "🐐",
 	},
 	{
 		id: 13,
@@ -120,6 +129,7 @@ export const animals: Animal[] = [
 		description:
 			"Gibier à plumes au goût raffiné et légèrement noisette. Viande tendre et peu grasse.",
 		image_url: "/images/faisan.jpg",
+		emoji: "🐓",
 	},
 	{
 		id: 14,
@@ -129,6 +139,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge très maigre, goût similaire au bœuf mais plus doux. Riche en protéines et faible en cholestérol.",
 		image_url: "/images/autruche.jpg",
+		emoji: "🐪", // Pas d'émoji autruche spécifique, on utilise chameau
 	},
 	{
 		id: 15,
@@ -138,6 +149,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge gamey au goût riche et sauvage. Tendre et maigre, riche en fer et en vitamine B12.",
 		image_url: "/images/cerf.jpg",
+		emoji: "🦌",
 	},
 	{
 		id: 16,
@@ -147,6 +159,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande goûteuse entre le poulet et le gibier. Texture ferme et saveur légèrement gamey.",
 		image_url: "/images/pintade.jpg",
+		emoji: "🐔", // Utilise poulet comme approximation
 	},
 	{
 		id: 17,
@@ -156,6 +169,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge foncé riche et savoureuse. Peau très grasse appréciée pour le confit.",
 		image_url: "/images/oie.jpg",
+		emoji: "🦢",
 	},
 	{
 		id: 18,
@@ -165,6 +179,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge foncé au goût gamey prononcé. Texture ferme nécessitant une cuisson lente.",
 		image_url: "/images/lievre.jpg",
+		emoji: "🐇", // Utilise lapin comme approximation
 	},
 	{
 		id: 19,
@@ -174,6 +189,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge très maigre au goût plus sucré que le bœuf. Riche en protéines et en fer.",
 		image_url: "/images/bison.jpg",
+		emoji: "🐃",
 	},
 	{
 		id: 20,
@@ -183,6 +199,7 @@ export const animals: Animal[] = [
 		description:
 			"Porcelet laitier à la viande extrêmement tendre et goût délicat. Peau croustillante appréciée rôtie.",
 		image_url: "/images/cochon-lait.jpg",
+		emoji: "🐖🍼",
 	},
 	{
 		id: 21,
@@ -192,6 +209,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge foncé au goût riche et légèrement gamey. Considéré comme un mets délicat.",
 		image_url: "/images/pigeon.jpg",
+		emoji: "🐦",
 	},
 	{
 		id: 22,
@@ -201,6 +219,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge très maigre au goût gamey prononcé. Riche en protéines et en acide linoléique.",
 		image_url: "/images/kangourou.jpg",
+		emoji: "🦘",
 	},
 	{
 		id: 23,
@@ -210,6 +229,7 @@ export const animals: Animal[] = [
 		description:
 			"Viande rouge très maigre, goût similaire au bœuf. Faible en gras et riche en fer.",
 		image_url: "/images/emeu.jpg",
+		emoji: "🐦", // Utilise oiseau générique
 	},
 	{
 		id: 24,
@@ -219,6 +239,7 @@ export const animals: Animal[] = [
 		description:
 			"Race porcine ancienne à la viande persillée et goût intense. Viande plus foncée et plus savoureuse.",
 		image_url: "/images/cochon-noir.jpg",
+		emoji: "🐖⚫",
 	},
 	{
 		id: 25,
@@ -228,10 +249,11 @@ export const animals: Animal[] = [
 		description:
 			"Petit cervidé au goût délicat et moins gamey que le cerf. Viande tendre et peu grasse.",
 		image_url: "/images/chevreuil.jpg",
+		emoji: "🦌",
 	},
 ];
 
-export const meatCuts: MeatCut[] = [
+export const meatCutsFR: MeatCut[] = [
 	// MORCEAUX DE BŒUF (id: 1)
 	{
 		id: 1,
@@ -1064,6 +1086,6 @@ export const meatCuts: MeatCut[] = [
 	},
 ];
 
-export const categories = [
-	...new Set(animals.map((animal) => animal.category)),
+export const categoriesFR = [
+	...new Set(animalsFR.map((animal) => animal.category)),
 ];

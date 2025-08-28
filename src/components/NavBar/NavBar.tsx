@@ -2,9 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import logo from "../../assets/logo.png";
+import { useLanguage } from "../../hooks/useLanguage";
+import { translations } from "../../data/translations";
+
 const NavBar = () => {
 	const [click, setClick] = useState(false);
 	const navRef = useRef<HTMLDivElement>(null);
+	const { language, toggleLanguage } = useLanguage();
 
 	const handleClick = () => setClick((prev) => !prev);
 	const closeMobileMenu = () => setClick(false);
@@ -28,10 +32,10 @@ const NavBar = () => {
 	}, [click]);
 
 	const navItems = [
-		{ path: "/", label: "Home" },
-		{ path: "/cards", label: "Cards" },
-		{ path: "/about", label: "About" },
-		{ path: "/animals", label: "Animals" },
+		{ path: "/", label: translations[language].navbar.home },
+		{ path: "/cards", label: translations[language].navbar.cards },
+		{ path: "/about", label: translations[language].navbar.about },
+		{ path: "/animals", label: translations[language].navbar.animals },
 	];
 
 	return (
@@ -39,7 +43,11 @@ const NavBar = () => {
 			<div className={styles.navContainer} ref={navRef}>
 				<NavLink to="/" className={styles.navLogo} onClick={closeMobileMenu}>
 					Pick your Meat
-					<img src={logo} alt="logo of DevTech Cards" className={styles.logo} />
+					<img
+						src={logo}
+						alt="logo of Pick your Meat"
+						className={styles.logo}
+					/>
 					<i className="fas fa-code" />
 				</NavLink>
 
@@ -65,6 +73,17 @@ const NavBar = () => {
 						</li>
 					))}
 				</ul>
+
+				<button
+					type="button"
+					onClick={toggleLanguage}
+					className={styles.langButton}
+					aria-label={
+						language === "en" ? "Switch to French" : "Passer en Anglais"
+					}
+				>
+					{language === "en" ? "🇫🇷" : "🇬🇧"}
+				</button>
 
 				<button
 					type="button"
