@@ -138,3 +138,27 @@
 		margin-top: var(--space-2);
 	}
 }
+
+.filterHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: var(--space-4);
+}
+
+.selectAllButton {
+	padding: var(--space-2) var(--space-3);
+	background-color: transparent;
+	border: 1px solid hsl(var(--color-border));
+	border-radius: var(--radius);
+	color: hsl(var(--color-muted-foreground));
+	cursor: pointer;
+	font-size: var(--text-sm);
+	transition: all 0.2s ease;
+}
+
+.selectAllButton:hover {
+	border-color: hsl(var(--color-primary));
+	color: hsl(var(--color-primary));
+	background-color: hsl(var(--color-primary) / 0.1);
+}

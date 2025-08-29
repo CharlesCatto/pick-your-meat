@@ -50,6 +50,8 @@ export const translations = {
 			next: "Next ▶️",
 			noResults: "🧐 No cuts match your criteria",
 			noResultsHint: "Try reducing the fat filter or selecting other animals.",
+			selectAll: "Select all",
+			deselectAll: "Deselect all",
 		},
 		animals: {
 			title: "Choose Your Animal",
@@ -194,6 +196,8 @@ export const translations = {
 			noResults: "🧐 Aucun morceau ne correspond à vos critères",
 			noResultsHint:
 				"Essayez de réduire le filtre de gras ou de sélectionner d'autres animaux.",
+			selectAll: "Tout sélectionner",
+			deselectAll: "Tout désélectionner",
 		},
 		animals: {
 			title: "Choisissez Votre Animal",

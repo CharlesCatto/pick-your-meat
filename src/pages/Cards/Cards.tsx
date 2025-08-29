@@ -30,7 +30,7 @@ const Cards = () => {
 		cuts = cuts.filter((cut) => cut.gras >= fatFilter);
 
 		return cuts;
-	}, [selectedAnimals, fatFilter, meatCuts]); // ✅ Ajoute meatCuts aux dépendances
+	}, [selectedAnimals, fatFilter, meatCuts]);
 
 	// Réinitialiser l'index quand les filtres changent
 	useEffect(() => {
@@ -39,6 +39,28 @@ const Cards = () => {
 			setIsRandomMode(false);
 		}
 	}, [filteredCuts]);
+
+	// Fonction pour sélectionner tous les animaux
+	const selectAllAnimals = () => {
+		const allAnimalIds = animals.map((animal) => animal.id.toString());
+		setSelectedAnimals(allAnimalIds);
+		setIsRandomMode(false);
+	};
+
+	// Fonction pour désélectionner tous les animaux
+	const deselectAllAnimals = () => {
+		setSelectedAnimals([]);
+		setIsRandomMode(false);
+	};
+
+	// Fonction pour toggle la sélection globale
+	const toggleSelectAll = () => {
+		if (selectedAnimals.length === animals.length) {
+			deselectAllAnimals();
+		} else {
+			selectAllAnimals();
+		}
+	};
 
 	// Fonction pour toggle un animal
 	const toggleAnimal = (animalId: string) => {
@@ -88,7 +110,18 @@ const Cards = () => {
 			<div className={styles.controls}>
 				{/* Filtres par Animal */}
 				<div className={styles.filterGroup}>
-					<h3>{t("cards.filterByAnimal")}</h3>
+					<div className={styles.filterHeader}>
+						<h3>{t("cards.filterByAnimal")}</h3>
+						<button
+							type="button"
+							onClick={toggleSelectAll}
+							className={styles.selectAllButton}
+						>
+							{selectedAnimals.length === animals.length
+								? t("cards.deselectAll")
+								: t("cards.selectAll")}
+						</button>
+					</div>
 					<div className={styles.filterButtons}>
 						{animals.map((animal) => (
 							<button
